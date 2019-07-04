@@ -1,0 +1,11 @@
+---  # document start
+
+name: "Sound Level Sensor"
+unit: "dB"
+minumum-polling-interval: 10 #in seconds
+payload-size: 1 # FFT
+threshold: true
+threshold-max: 100
+threshold-min: 0
+
+...  # document end
