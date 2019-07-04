@@ -1,6 +1,2 @@
----  # document start
-
 sensors: 
   0x00: !include sound-level-sensor.yaml
-
-...  # document end
