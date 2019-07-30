@@ -6,6 +6,7 @@ sensor-values:
     quantity: "Sound Level"
     size: 1  
     type: "uint8"
-threshold: true
-threshold-max: 100
-threshold-min: 0
+config:
+  - threshold: true
+    threshold-max: 100
+    threshold-min: 0
