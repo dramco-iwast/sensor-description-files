@@ -1,0 +1,10 @@
+name: "Button Sensor"
+
+payload-size: 1 #in bytes
+
+sensor-values:
+  - unit: "-"
+    quantity: "Pressed"
+    size: 1  #in bytes
+    type: "uint8"
+    info: "Button state. E.g., [0100 0100] denotes that the second and sixt buttons were pressed."
