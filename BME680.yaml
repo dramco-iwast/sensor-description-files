@@ -30,6 +30,15 @@ sensor-metric:
       quantity: "Pressure"
       size: 2  # in bytes
       type: "uint16"
+      precision: 0  # number of decimals after comma
+      convert-to-machine: !!js/function > #  TODO
+            function f(value) {}
+            return value;
+            }();
+      convert-to-human: !!js/function > #  TODO
+            function f(value) {
+            return value;
+            }();
       config:
           - threshold: true
             threshold-max: 1100
@@ -39,6 +48,15 @@ sensor-metric:
       quantity: "VOC gas"
       size: 2  # in bytes
       type: "uint16"
+      precision: 0  # number of decimals after comma
+      convert-to-machine: !!js/function > #  TODO
+            function f(value) {}
+            return value;
+            }();
+      convert-to-human: !!js/function > #  TODO
+            function f(value) {
+            return value;
+            }();
       config:
           - threshold: true
             threshold-max: 100
