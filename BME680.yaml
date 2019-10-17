@@ -1,0 +1,32 @@
+name: "Enviroment Sensor"
+
+payload-size: 3 #in bytes
+
+sensor-metric:
+    - unit: "°C"
+     quantity: "Temperature"
+     size: 1  #in bytes
+     type: "uint8"
+     config:
+      - threshold: true
+        threshold-max: 100
+        threshold-min: 0
+        minumum-polling-interval: 10 #in seconds
+   - unit: "Pa"
+     quantity: "Druk"
+     size: 1  #in bytes
+     type: "uint8"
+     config:
+      - threshold: true
+        threshold-max: 100
+        threshold-min: 0
+        minumum-polling-interval: 10 #in seconds
+   - unit: "ppm"
+     quantity: "VOC gas"
+     size: 1  #in bytes
+     type: "uint8"
+     config:
+      - threshold: true
+        threshold-max: 100
+        threshold-min: 0
+        minumum-polling-interval: 10 #in seconds
