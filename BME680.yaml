@@ -15,7 +15,7 @@ sensor-metric:
       precision: 2  # number of decimals after comma
       convert-to-machine: !!js/function >
             function f(value) {}
-            return value + 273.15;
+            return value + 273.15 ;
             }();
       convert-to-human: !!js/function >
             function f(value) {
@@ -44,22 +44,22 @@ sensor-metric:
             threshold-max: 1100
             threshold-min: 300
             minumum-polling-interval: 10  # in seconds
-    - unit: "ppm"
-      quantity: "VOC gas"
+    - unit: "-"
+      quantity: "Air Quality Indication"
       size: 2  # in bytes
       type: "uint16"
       precision: 0  # number of decimals after comma
-      convert-to-machine: !!js/function > #  TODO
+      convert-to-machine: !!js/function > #  no convertion needed
             function f(value) {}
             return value;
             }();
-      convert-to-human: !!js/function > #  TODO
+      convert-to-human: !!js/function > #  no convertion needed
             function f(value) {
             return value;
             }();
       config:
           - threshold: true
-            threshold-max: 100
+            threshold-max: 500
             threshold-min: 0
             minumum-polling-interval: 10  # in seconds
     - unit: "%"
