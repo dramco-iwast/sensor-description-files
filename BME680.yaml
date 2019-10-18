@@ -7,76 +7,98 @@ parse-payload: !!js/function >
             error("Not Implemented yet")
             }();
 
+info:
+  nl: |-
+    Deze sensor bevat vier verschillende functionaliteiten.
+    Het kan de temperatuur, druk, Luchtkwaliteit en vochtigheid opmeten.
+  en: |-
+    This sensor has four functionalities.
+    It can measure the temperature, air quality, pressure en humidity.
+
 sensor-metric:
-    - unit: "°C"
-      quantity: "Temperature"
-      size: 2  # in bytes
-      type: "uint16"
-      precision: 2  # number of decimals after comma
-      convert-to-machine: !!js/function >
+  - unit: "°C"
+    quantity:
+      nl: "Temperatuur"
+      en: "Temperature"
+    info:
+      nl: "Meet de temperatuur in °C."
+      en: "Measure the temperature in °C."
+    size: 2  # in bytes
+    type: "uint16"
+    precision: 2  # number of decimals after comma
+    convert-to-machine: !!js/function >
             function f(value) {}
             return value + 273.15 ;
             }();
-      convert-to-human: !!js/function >
+    convert-to-human: !!js/function >
             function f(value) {
             return value - 273.15;
             }();
-      config:
-          - threshold: true
-            threshold-max: 58
-            threshold-min: -40
-            minumum-polling-interval: 10  # in seconds
-    - unit: "hPa"
-      quantity: "Pressure"
-      size: 2  # in bytes
-      type: "uint16"
-      precision: 0  # number of decimals after comma
-      convert-to-machine: !!js/function > #  TODO
-            function f(value) {}
-            return value;
-            }();
-      convert-to-human: !!js/function > #  TODO
-            function f(value) {
-            return value;
-            }();
-      config:
-          - threshold: true
-            threshold-max: 1100
-            threshold-min: 300
-            minumum-polling-interval: 10  # in seconds
-    - unit: "-"
-      quantity: "Air Quality Indication"
-      size: 2  # in bytes
-      type: "uint16"
-      precision: 0  # number of decimals after comma
-      convert-to-machine: !!js/function > #  no convertion needed
-            function f(value) {}
-            return value;
-            }();
-      convert-to-human: !!js/function > #  no convertion needed
-            function f(value) {
-            return value;
-            }();
-      config:
-          - threshold: true
-            threshold-max: 500
-            threshold-min: 0
-            minumum-polling-interval: 10  # in seconds
-    - unit: "%"
-      quantity: "Humidity"
-      size: 2  # in bytes
-      type: "uint16"
-      precision: 0  # number of decimals after comma
-      convert-to-machine: !!js/function > #  no convertion needed
-            function f(value) {}
-            return value;
-            }();
-      convert-to-human: !!js/function > #  no convertion needed
-            function f(value) {
-            return value;
-            }();
-      config:
-          - threshold: true
-            threshold-max: 100
-            threshold-min: 0
-            minumum-polling-interval: 10  # in seconds
+    config:
+      - threshold: true
+        threshold-max: 58
+        threshold-min: -40
+        minumum-polling-interval: 10  # in seconds
+  - unit: "hPa"
+    quantity: "Pressure"
+    size: 2  # in bytes
+    type: "uint16"
+    precision: 0  # number of decimals after comma
+    convert-to-machine: !!js/function > #  TODO
+          function f(value) {}
+          return value;
+          }();
+    convert-to-human: !!js/function > #  TODO
+          function f(value) {
+          return value;
+          }();
+    config:
+      - threshold: true
+        threshold-max: 1100
+        threshold-min: 300
+        minumum-polling-interval: 10  # in seconds
+  - unit: "-"
+    quantity:
+      en: "Air Quality Indication"
+      nl: "Luchtkwaliteitsindicatie"
+    info:
+      nl: |-
+          Meet hoe vervuild de lucht rondom de module is.
+          Kijk of er een risico is voor de gezondheid.
+      en: |-
+          Measure how polluted the air is.
+          Evaluate if there are any health risks possible.
+    size: 2  # in bytes
+    type: "uint16"
+    precision: 0  # number of decimals after comma
+    convert-to-machine: !!js/function > #  no convertion needed
+          function f(value) {}
+          return value;
+          }();
+    convert-to-human: !!js/function > #  no convertion needed
+          function f(value) {
+          return value;
+          }();
+    config:
+      - threshold: true
+        threshold-max: 500
+        threshold-min: 0
+        minumum-polling-interval: 10  # in seconds
+  - unit: "%"
+    quantity: "Humidity"
+    size: 2  # in bytes
+    type: "uint16"
+    precision: 0  # number of decimals after comma
+    convert-to-machine: !!js/function > #  no convertion needed
+          function f(value) {}
+          return value;
+          }();
+    convert-to-human: !!js/function > #  no convertion needed
+          function f(value) {
+          return value;
+          }();
+    config:
+      - threshold: true
+        threshold-max: 100
+        threshold-min: 0
+        minumum-polling-interval: 10  # in seconds
