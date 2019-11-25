@@ -3,9 +3,9 @@
 name: "Enviroment Sensor"
 
 parse-payload: !!js/function >
-            function f(value) {
-            error("Not Implemented yet")
-            }();
+  function parsePayload(value){
+    error("Not Implemented yet");
+  }
 
 info:
   nl: |-
@@ -27,13 +27,13 @@ sensor-metric:
     type: "uint16"
     precision: 2  # number of decimals after comma
     convert-to-machine: !!js/function >
-            function f(value) {}
+            function toMachine(value) {
             return value + 273.15 ;
-            }();
+            }
     convert-to-human: !!js/function >
-            function f(value) {
+            function toHuman(value) {
             return value - 273.15;
-            }();
+            }
     config:
       - threshold: true
         threshold-max: 58
@@ -45,13 +45,13 @@ sensor-metric:
     type: "uint16"
     precision: 0  # number of decimals after comma
     convert-to-machine: !!js/function > #  TODO
-          function f(value) {}
+          function toMachine(value) {
           return value;
-          }();
+          }
     convert-to-human: !!js/function > #  TODO
-          function f(value) {
+          function toHuman(value) {
           return value;
-          }();
+          }
     config:
       - threshold: true
         threshold-max: 1100
@@ -71,14 +71,14 @@ sensor-metric:
     size: 2  # in bytes
     type: "uint16"
     precision: 0  # number of decimals after comma
-    convert-to-machine: !!js/function > #  no convertion needed
-          function f(value) {}
+    convert-to-machine: !!js/function > #  TODO
+          function toMachine(value) {
           return value;
-          }();
-    convert-to-human: !!js/function > #  no convertion needed
-          function f(value) {
+          }
+    convert-to-human: !!js/function > #  TODO
+          function toHuman(value) {
           return value;
-          }();
+          }
     config:
       - threshold: true
         threshold-max: 500
@@ -89,14 +89,14 @@ sensor-metric:
     size: 2  # in bytes
     type: "uint16"
     precision: 0  # number of decimals after comma
-    convert-to-machine: !!js/function > #  no convertion needed
-          function f(value) {}
+    convert-to-machine: !!js/function > #  TODO
+          function toMachine(value) {
           return value;
-          }();
-    convert-to-human: !!js/function > #  no convertion needed
-          function f(value) {
+          }
+    convert-to-human: !!js/function > #  TODO
+          function toHuman(value) {
           return value;
-          }();
+          }
     config:
       - threshold: true
         threshold-max: 100
