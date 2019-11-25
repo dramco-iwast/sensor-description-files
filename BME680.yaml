@@ -16,7 +16,8 @@ info:
     It can measure the temperature, air quality, pressure en humidity.
 
 sensor-metric:
-  - unit: "°C"
+  - id: 1
+    unit: "°C"
     quantity:
       nl: "Temperatuur"
       en: "Temperature"
@@ -57,7 +58,8 @@ sensor-metric:
         threshold-max: 1100
         threshold-min: 300
         minumum-polling-interval: 10  # in seconds
-  - unit: "-"
+  - id: 2
+    unit: "-"
     quantity:
       en: "Air Quality Indication"
       nl: "Luchtkwaliteitsindicatie"
@@ -84,7 +86,8 @@ sensor-metric:
         threshold-max: 500
         threshold-min: 0
         minumum-polling-interval: 10  # in seconds
-  - unit: "%"
+  - id: 3
+    unit: "%"
     quantity: "Humidity"
     size: 2  # in bytes
     type: "uint16"
