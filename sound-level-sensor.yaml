@@ -1,15 +1,40 @@
 name: "Sound Level Sensor"
 
-payload-size: 1 #in bytes
+parse-payload: !!js/function >
+  function parsePayload(value){
+    error("Not Implemented yet");
+  }
 
-sensor-values:
-  - unit: "dB"
-    quantity: "Sound Level"
-    size: 1  #in bytes
-    type: "uint8"
+info:
+  nl: |-
+    Deze sensor zal het geluidsniveau opmeten.
+    Je kan het geluidsniveau op vaste tijdsstippen uitmeten 
+    en/of doorsturen wanneer het boven of onder een bepaald niveau is.
+  en: |-
+    This sensor measures the sound level.
+    You can measure it at fixed time intervals and/or transmit the value when
+    the level falls below or rises above a threshold.
 
-config:
-  - threshold: true
-    threshold-max: 100
-    threshold-min: 0
-    minumum-polling-interval: 10 #in seconds
+sensor-metric:
+  - id: 1
+    unit: "dB"
+    quantity:
+      nl: "Geluidsniveau"
+      en: "Sound Level"
+    info:
+      nl: "Meet het geluidsniveau in dB."
+      en: "Measure the sound level in dB."
+    convert-to-machine: !!js/function >
+            function toMachine(value) {
+            return value;
+            }
+    convert-to-human: !!js/function >
+            function toHuman(value) {
+            return value;
+            }
+    config:
+      - threshold: true
+        threshold-max: 100
+        threshold-min: 0
+        minimum-polling-interval: 60  #60 is fixed by the motherboard do not change below 60
+        minimum-polling-interval-unit: sec

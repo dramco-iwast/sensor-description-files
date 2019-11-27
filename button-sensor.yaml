@@ -1,10 +1,37 @@
 name: "Button Sensor"
 
-payload-size: 1 #in bytes
+
+parse-payload: !!js/function >
+  function parsePayload(value){
+    error("Not Implemented yet");
+  }
+
+
+
+info:
+  nl: |-
+    Deze sensor bevat vier drukknoppen.
+  en: |-
+    This sensor hosts four push button.
 
 sensor-values:
-  - unit: "-"
-    quantity: "Pressed"
-    size: 1  #in bytes
-    type: "uint8"
-    info: "Button state. E.g., [0100 0100] denotes that the second and sixt buttons were pressed."
+  - id: 1
+    unit: "-"
+    quantity:
+      nl: "Ingedrukt"
+      en: "Pressed"
+    info:
+      nl: "Drukknop staat"
+      en: "Button state"
+    convert-to-machine: !!js/function >
+            function toMachine(value) {
+              // not needed, I guess
+            }
+    convert-to-human: !!js/function >
+            function toHuman(value) {
+            return (value).toString(2);
+            // to access boolean !!result[0]
+            }
+    config:
+      - threshold: false
+        minimum-polling-interval: false

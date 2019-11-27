@@ -24,9 +24,6 @@ sensor-metric:
     info:
       nl: "Meet de temperatuur in °C."
       en: "Measure the temperature in °C."
-    size: 2  # in bytes
-    type: "uint16"
-    precision: 2  # number of decimals after comma
     convert-to-machine: !!js/function >
             function toMachine(value) {
             return value + 273.15 ;
@@ -39,14 +36,11 @@ sensor-metric:
       - threshold: true
         threshold-max: 58
         threshold-min: -40
-        minimum-polling-interval: 10
-        minimum-polling-interval-unit: min
+        minimum-polling-interval: 60  #60 is fixed by the motherboard do not change below 60
+        minimum-polling-interval-unit: sec
   - id: 2
     unit: "hPa"
     quantity: "Pressure"
-    size: 2  # in bytes
-    type: "uint16"
-    precision: 0  # number of decimals after comma
     convert-to-machine: !!js/function > #  TODO
           function toMachine(value) {
           return value;
@@ -59,8 +53,8 @@ sensor-metric:
       - threshold: true
         threshold-max: 1100
         threshold-min: 300
-        minimum-polling-interval: 10
-        minimum-polling-interval-unit: min
+        minimum-polling-interval: 60  #60 is fixed by the motherboard do not change below 60
+        minimum-polling-interval-unit: sec
   - id: 3
     unit: "-"
     quantity:
@@ -73,9 +67,6 @@ sensor-metric:
       en: |-
           Measure how polluted the air is.
           Evaluate if there are any health risks possible.
-    size: 2  # in bytes
-    type: "uint16"
-    precision: 0  # number of decimals after comma
     convert-to-machine: !!js/function > #  TODO
           function toMachine(value) {
           return value;
@@ -88,14 +79,11 @@ sensor-metric:
       - threshold: true
         threshold-max: 500
         threshold-min: 0
-        minimum-polling-interval: 10
-        minimum-polling-interval-unit: min
+        minimum-polling-interval: 60  #60 is fixed by the motherboard do not change below 60
+        minimum-polling-interval-unit: sec
   - id: 4
     unit: "%"
     quantity: "Humidity"
-    size: 2  # in bytes
-    type: "uint16"
-    precision: 0  # number of decimals after comma
     convert-to-machine: !!js/function > #  TODO
           function toMachine(value) {
           return value;
@@ -108,5 +96,5 @@ sensor-metric:
       - threshold: true
         threshold-max: 100
         threshold-min: 0
-        minimum-polling-interval: 10
-        minimum-polling-interval-unit: min
+        minimum-polling-interval: 60  #60 is fixed by the motherboard do not change below 60
+        minimum-polling-interval-unit: sec
