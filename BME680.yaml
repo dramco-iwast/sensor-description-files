@@ -1,6 +1,6 @@
 ---
 
-name: "Enviroment Sensor"
+name: "Environment Sensor"
 
 parse-payload: !!js/function >
   function parsePayload(value){
@@ -39,8 +39,10 @@ sensor-metric:
       - threshold: true
         threshold-max: 58
         threshold-min: -40
-        minumum-polling-interval: 10  # in seconds
-  - unit: "hPa"
+        minimum-polling-interval: 10
+        minimum-polling-interval-unit: min
+  - id: 2
+    unit: "hPa"
     quantity: "Pressure"
     size: 2  # in bytes
     type: "uint16"
@@ -57,8 +59,9 @@ sensor-metric:
       - threshold: true
         threshold-max: 1100
         threshold-min: 300
-        minumum-polling-interval: 10  # in seconds
-  - id: 2
+        minimum-polling-interval: 10
+        minimum-polling-interval-unit: min
+  - id: 3
     unit: "-"
     quantity:
       en: "Air Quality Indication"
@@ -85,8 +88,9 @@ sensor-metric:
       - threshold: true
         threshold-max: 500
         threshold-min: 0
-        minumum-polling-interval: 10  # in seconds
-  - id: 3
+        minimum-polling-interval: 10
+        minimum-polling-interval-unit: min
+  - id: 4
     unit: "%"
     quantity: "Humidity"
     size: 2  # in bytes
@@ -104,4 +108,5 @@ sensor-metric:
       - threshold: true
         threshold-max: 100
         threshold-min: 0
-        minumum-polling-interval: 10  # in seconds
+        minimum-polling-interval: 10
+        minimum-polling-interval-unit: min
