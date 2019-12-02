@@ -33,5 +33,9 @@ sensor-values:
             // to access boolean !!result[0]
             }
     config:
-      - threshold: false
-        minimum-polling-interval: false
+      - threshold:
+        - enabled: false
+          max: 1100
+          min: 300
+      - polling:
+        - enabled: false
