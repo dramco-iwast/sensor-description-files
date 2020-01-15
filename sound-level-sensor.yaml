@@ -26,11 +26,11 @@ sensor-metric:
       en: "Measure the sound level in dB."
     convert-to-machine: !!js/function >
             function toMachine(value) {
-            return value;
+            return value.toString(16);
             }
     convert-to-human: !!js/function >
             function toHuman(value) {
-            return value;
+            return parseInt(value);
             }
     config:
       - threshold: true
