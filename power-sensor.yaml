@@ -1,0 +1,58 @@
+name: "Power Sensor"
+
+parse-payload: !!js/function >
+  function parsePayload(value){
+    error("Not Implemented yet");
+  }
+
+info:
+  nl: |-
+    Deze sensor meet de batterij en licht hoeveelheid op.
+  en: |-
+    This sensor measures the battery level and light intensity.
+
+sensor-metric:
+  - id: 1
+    unit: "V"
+    quantity:
+      nl: "Batterijniveau"
+      en: "Battery Level"
+    info:
+      nl: "Meet het batterijniveau in V."
+      en: "Measures the battery level in V."
+    convert-to-machine: !!js/function >
+            function toMachine(value) {
+            return value.toString(16)*100.0;
+            }
+    convert-to-human: !!js/function >
+            function toHuman(value) {
+            return parseInt(value)/100.0;
+            }
+    config:
+      - threshold:
+        - enabled: false
+      - polling:
+        - min-interval: 60 #60 is fixed by the motherboard do not change below 60
+          unit: sec
+  - id: 2
+    unit: "%"
+    quantity:
+      nl: "Lichtintensiteit"
+      en: "Light intensity"
+    info:
+      nl: "Meet het lichtintensiteit in %."
+      en: "Measures the light intensity in %."
+    convert-to-machine: !!js/function >
+            function toMachine(value) {
+            return value.toString(16);
+            }
+    convert-to-human: !!js/function >
+            function toHuman(value) {
+            return parseInt(value);
+            }
+    config:
+      - threshold:
+        - enabled: false
+      - polling:
+        - min-interval: 60 #60 is fixed by the motherboard do not change below 60
+          unit: sec
