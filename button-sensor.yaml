@@ -21,7 +21,7 @@ sensor-metrics:
       nl: "Ingedrukt"
       en: "Pressed"
     info:
-      nl: "Drukknop staat"
+      nl: "Drukknop status"
       en: "Button state"
     convert-to-machine: !!js/function >
             function toMachine(value) {
