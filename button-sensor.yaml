@@ -14,7 +14,7 @@ info:
   en: |-
     This sensor hosts four push button.
 
-sensor-metrics:
+sensor-metric:
   - id: 1
     unit: "-"
     quantity:
