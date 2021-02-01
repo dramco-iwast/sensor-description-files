@@ -1,1 +1,220 @@
-{"sensors": {"0x01": {"name": "Sound Level Sensor", "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n", "info": {"nl": "Deze sensor zal het geluidsniveau opmeten.\nJe kan het geluidsniveau op vaste tijdsstippen uitmeten \nen/of doorsturen wanneer het boven of onder een bepaald niveau is.", "en": "This sensor measures the sound level.\nYou can measure it at fixed time intervals and/or transmit the value when\nthe level falls below or rises above a threshold."}, "sensor-metric": [{"id": "1", "unit": "dB", "quantity": {"nl": "Geluidsniveau", "en": "Sound Level"}, "info": {"nl": "Meet het geluidsniveau in dB.", "en": "Measure the sound level in dB."}, "convert-to-machine": "function toMachine(value) { return value.toString(16)*600; }\n", "convert-to-human": "function toHuman(value) { return parseInt(value)/600; }\n", "config": [{"threshold": "true", "threshold-max": "100", "threshold-min": "0", "minimum-polling-interval": "60", "minimum-polling-interval-unit": "sec"}]}]}, "0x02": {"name": "Button Sensor", "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n", "info": {"nl": "Deze sensor bevat vier drukknoppen.", "en": "This sensor hosts four push button."}, "sensor-metrics": [{"id": "1", "unit": "-", "quantity": {"nl": "Ingedrukt", "en": "Pressed"}, "info": {"nl": "Drukknop status", "en": "Button state"}, "convert-to-machine": "function toMachine(value) {\n  // not needed, I guess\n}\n", "convert-to-human": "function toHuman(value) { return (value).toString(2); // to access boolean !!result[0] }\n", "config": [{"threshold": [{"enabled": "false", "max": "1100", "min": "300"}]}, {"polling": [{"enabled": "false"}]}]}]}, "0x03": {"name": "Environment Sensor", "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n", "info": {"nl": "Deze sensor bevat vier verschillende functionaliteiten.\nHet kan de temperatuur, druk, Luchtkwaliteit en vochtigheid opmeten.", "en": "This sensor has four functionalities.\nIt can measure the temperature, air quality, pressure en humidity."}, "sensor-metric": [{"id": "1", "unit": "\u00b0C", "quantity": {"nl": "Temperatuur", "en": "Temperature"}, "info": {"nl": "Meet de temperatuur in \u00b0C.", "en": "Measure the temperature in \u00b0C."}, "convert-to-machine": "function toMachine(value) { return value + 273.15 ; }\n", "convert-to-human": "function toHuman(value) { return value - 273.15; }\n", "config": [{"threshold": [{"enabled": "true;", "max": "1100", "min": "300"}]}, {"polling": [{"min-interval": "60", "unit": "sec"}]}]}, {"id": "2", "unit": "hPa", "quantity": "Pressure", "convert-to-machine": "function toMachine(value) { return value; }\n", "convert-to-human": "function toHuman(value) { return value; }\n", "config": [{"threshold": [{"enabled": "true;", "max": "1100", "min": "300"}]}, {"polling": [{"min": "60", "unit": "sec"}]}]}, {"id": "3", "unit": "-", "quantity": {"en": "Air Quality Indication", "nl": "Luchtkwaliteitsindicatie"}, "info": {"nl": "Meet hoe vervuild de lucht rondom de module is.\nKijk of er een risico is voor de gezondheid.", "en": "Measure how polluted the air is.\nEvaluate if there are any health risks possible."}, "convert-to-machine": "function toMachine(value) { return value; }\n", "convert-to-human": "function toHuman(value) { return value; }\n", "config": [{"threshold": [{"enabled": "true;", "max": "500", "min": "0"}]}, {"minimum-polling-interval": [{"value": "60", "unit": "sec"}]}]}, {"id": "4", "unit": "%", "quantity": "Humidity", "convert-to-machine": "function toMachine(value) { return value; }\n", "convert-to-human": "function toHuman(value) { return value; }\n", "config": [{"threshold": [{"enabled": "true;", "max": "1100", "min": "300"}]}, {"minimum-polling-interval": [{"value": "60", "unit": "sec"}]}]}]}, "0x04": {"name": "Power Sensor", "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n", "info": {"nl": "Deze sensor meet de batterij en licht hoeveelheid op.", "en": "This sensor measures the battery level and light intensity."}, "sensor-metric": [{"id": "1", "unit": "V", "quantity": {"nl": "Batterijniveau", "en": "Battery Level"}, "info": {"nl": "Meet het batterijniveau in V.", "en": "Measures the battery level in V."}, "convert-to-machine": "function toMachine(value) { return value.toString(16)*10000.0; }\n", "convert-to-human": "function toHuman(value) { return parseInt(value)/10000.0; }\n", "config": [{"threshold": [{"enabled": "true;", "max": "4.2", "min": "0"}]}, {"polling": [{"min-interval": "60", "unit": "sec"}]}]}, {"id": "2", "unit": "lux", "quantity": {"nl": "Lichtintensiteit", "en": "Light intensity"}, "info": {"nl": "Meet het lichtintensiteit in lux.", "en": "Measures the light intensity in lux."}, "convert-to-machine": "function toMachine(value) { return value.toString(16); }\n", "convert-to-human": "function toHuman(value) { return parseInt(value); }\n", "config": [{"threshold": [{"enabled": "true;", "max": "65535", "min": "0"}]}, {"polling": [{"min-interval": "60", "unit": "sec"}]}]}]}}}
+{
+  "sensors": {
+    "1": {
+      "name": "Sound Level Sensor",
+      "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n",
+      "info": {
+        "nl": "Deze sensor zal het geluidsniveau opmeten.\nJe kan het geluidsniveau op vaste tijdsstippen uitmeten \nen/of doorsturen wanneer het boven of onder een bepaald niveau is.",
+        "en": "This sensor measures the sound level.\nYou can measure it at fixed time intervals and/or transmit the value when\nthe level falls below or rises above a threshold."
+      },
+      "sensor-metric": [{
+        "id": "1",
+        "unit": "dB",
+        "quantity": {
+          "nl": "Geluidsniveau",
+          "en": "Sound Level"
+        },
+        "info": {
+          "nl": "Meet het geluidsniveau in dB.",
+          "en": "Measure the sound level in dB."
+        },
+        "convert-to-machine": "function toMachine(value) { return value.toString(16)*600; }\n",
+        "convert-to-human": "function toHuman(value) { return parseInt(value)/600; }\n",
+        "config": [{
+          "threshold": "true",
+          "threshold-max": "100",
+          "threshold-min": "0",
+          "minimum-polling-interval": "60",
+          "minimum-polling-interval-unit": "sec"
+        }]
+      }]
+    },
+    "2": {
+      "name": "Button Sensor",
+      "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n",
+      "info": {
+        "nl": "Deze sensor bevat vier drukknoppen.",
+        "en": "This sensor hosts four push button."
+      },
+      "sensor-metrics": [{
+        "id": "1",
+        "unit": "-",
+        "quantity": {
+          "nl": "Ingedrukt",
+          "en": "Pressed"
+        },
+        "info": {
+          "nl": "Drukknop status",
+          "en": "Button state"
+        },
+        "convert-to-machine": "function toMachine(value) {\n  // not needed, I guess\n}\n",
+        "convert-to-human": "function toHuman(value) { return (value).toString(2); // to access boolean !!result[0] }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "false",
+            "max": "1100",
+            "min": "300"
+          }]
+        }, {
+          "polling": [{
+            "enabled": "false"
+          }]
+        }]
+      }]
+    },
+    "3": {
+      "name": "Environment Sensor",
+      "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n",
+      "info": {
+        "nl": "Deze sensor bevat vier verschillende functionaliteiten.\nHet kan de temperatuur, druk, Luchtkwaliteit en vochtigheid opmeten.",
+        "en": "This sensor has four functionalities.\nIt can measure the temperature, air quality, pressure en humidity."
+      },
+      "sensor-metric": [{
+        "id": "1",
+        "unit": "\u00b0C",
+        "quantity": {
+          "nl": "Temperatuur",
+          "en": "Temperature"
+        },
+        "info": {
+          "nl": "Meet de temperatuur in \u00b0C.",
+          "en": "Measure the temperature in \u00b0C."
+        },
+        "convert-to-machine": "function toMachine(value) { return value + 273.15 ; }\n",
+        "convert-to-human": "function toHuman(value) { return value - 273.15; }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "1100",
+            "min": "300"
+          }]
+        }, {
+          "polling": [{
+            "min-interval": "60",
+            "unit": "sec"
+          }]
+        }]
+      }, {
+        "id": "2",
+        "unit": "hPa",
+        "quantity": "Pressure",
+        "convert-to-machine": "function toMachine(value) { return value; }\n",
+        "convert-to-human": "function toHuman(value) { return value; }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "1100",
+            "min": "300"
+          }]
+        }, {
+          "polling": [{
+            "min": "60",
+            "unit": "sec"
+          }]
+        }]
+      }, {
+        "id": "3",
+        "unit": "-",
+        "quantity": {
+          "en": "Air Quality Indication",
+          "nl": "Luchtkwaliteitsindicatie"
+        },
+        "info": {
+          "nl": "Meet hoe vervuild de lucht rondom de module is.\nKijk of er een risico is voor de gezondheid.",
+          "en": "Measure how polluted the air is.\nEvaluate if there are any health risks possible."
+        },
+        "convert-to-machine": "function toMachine(value) { return value; }\n",
+        "convert-to-human": "function toHuman(value) { return value; }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "500",
+            "min": "0"
+          }]
+        }, {
+          "minimum-polling-interval": [{
+            "value": "60",
+            "unit": "sec"
+          }]
+        }]
+      }, {
+        "id": "4",
+        "unit": "%",
+        "quantity": "Humidity",
+        "convert-to-machine": "function toMachine(value) { return value; }\n",
+        "convert-to-human": "function toHuman(value) { return value; }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "1100",
+            "min": "300"
+          }]
+        }, {
+          "minimum-polling-interval": [{
+            "value": "60",
+            "unit": "sec"
+          }]
+        }]
+      }]
+    },
+    "4": {
+      "name": "Power Sensor",
+      "parse-payload": "function parsePayload(value){\n  error(\"Not Implemented yet\");\n}\n",
+      "info": {
+        "nl": "Deze sensor meet de batterij en licht hoeveelheid op.",
+        "en": "This sensor measures the battery level and light intensity."
+      },
+      "sensor-metric": [{
+        "id": "1",
+        "unit": "V",
+        "quantity": {
+          "nl": "Batterijniveau",
+          "en": "Battery Level"
+        },
+        "info": {
+          "nl": "Meet het batterijniveau in V.",
+          "en": "Measures the battery level in V."
+        },
+        "convert-to-machine": "function toMachine(value) { return value.toString(16)*10000.0; }\n",
+        "convert-to-human": "function toHuman(value) { return parseInt(value)/10000.0; }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "4.2",
+            "min": "0"
+          }]
+        }, {
+          "polling": [{
+            "min-interval": "60",
+            "unit": "sec"
+          }]
+        }]
+      }, {
+        "id": "2",
+        "unit": "lux",
+        "quantity": {
+          "nl": "Lichtintensiteit",
+          "en": "Light intensity"
+        },
+        "info": {
+          "nl": "Meet het lichtintensiteit in lux.",
+          "en": "Measures the light intensity in lux."
+        },
+        "convert-to-machine": "function toMachine(value) { return value.toString(16); }\n",
+        "convert-to-human": "function toHuman(value) { return parseInt(value); }\n",
+        "config": [{
+          "threshold": [{
+            "enabled": "true;",
+            "max": "65535",
+            "min": "0"
+          }]
+        }, {
+          "polling": [{
+            "min-interval": "60",
+            "unit": "sec"
+          }]
+        }]
+      }]
+    }
+  }
+}
